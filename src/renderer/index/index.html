@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>文件上传助手</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="../../animate/animate.css" />
+    <link rel="stylesheet" href="../../animate/fade.css" />
+    <link rel="stylesheet" href="../../animate/slide_left_right.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="upload-container" id="draggable">
+        <input
+          id="file"
+          type="file"
+          multiple="multiple"
+          title=""
+          accept="image/*"
+        />
+
+        <img class="box" src="../../images/box.png" />
+        <div class="title">点击或者拖拽文件到这个区域上传</div>
+        <div class="sub-title">支持单个或多个文件上传</div>
+      </div>
+      <!-- 图片列表 -->
+      <div class="list" id="list"></div>
+      <!-- 预览图片 -->
+      <img src="" class="preview" id="preview" />
+      <!-- 设置部分 -->
+      <div class="status-bar">
+        <img src="../../images//setting.png" class="setting" id="setting" />
+      </div>
+
+      <div class="setting-panel animated" id="setting-panel">
+        <div class="setting-header">
+          <img src="../../images/close.png" class="close" id="close" />
+        </div>
+        <div class="setting-item">
+          <label class="label">文件上传路径</label>
+          <div class="right">
+            <input type="text" class="input" data-action="file-upload-url" />
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <label class="label">文件属性key</label>
+          <div class="right">
+            <input type="text" class="input" data-action="file-property" />
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <label class="label">结果解析表达式</label>
+          <div class="right">
+            <input type="text" class="input" data-action="parser-expression" />
+          </div>
+        </div>
+        <div class="setting-item animated" id="compress">
+          <label class="label">开启上传压缩</label>
+          <div class="right">
+            <div class="switch" data-action="compress"></div>
+          </div>
+        </div>
+
+          <div class="setting-item animated" id="setting-item-api-key">
+            <label class="label">Tinify API Key</label>
+            <div class="right">
+              <input type="text" class="input api-key" data-action="api-key" />
+            </div>
+          </div>
+
+          <div class="setting-item animated" id="setting-item-compress-times">
+            <label class="label">压缩次数</label>
+            <div class="right">
+              <div class="compress-times">
+                <div class="decrement" id="decrement"></div>
+                <input type="number" class="input " value="1" data-action="compress-times" id="compress-times"/>
+                <div class="increment"  id="increment"></div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

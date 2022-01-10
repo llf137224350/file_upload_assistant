@@ -1,0 +1,102 @@
+{
+  "name": "file_upload_assistant",
+  "version": "1.0.0",
+  "description": "a file upload assistant application",
+  "main": "./src/main.js",
+  "scripts": {
+    "start": "nodemon --watch ./src/**/*.* --exec 'electron ./src/main.js'",
+    "dist": "electron-builder",
+    "dist-win": "electron-builder  --win --x64"
+  },
+  "build": {
+    "appId": "file_upload_assistant",
+    "productName": "文件上传助手",
+    "files": [
+      "**/*",
+      "!dist/*",
+      "!build/*",
+      "!node_modules/electron/*",
+      "!node_modules/electron-builder/*",
+      "!node_modules/eslint*/*",
+      "!node_modules/nodemon/*",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!**/node_modules/*.d.ts",
+      "!**/node_modules/.bin",
+      "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+      "!.editorconfig",
+      "!**/._*",
+      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+      "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+      "!**/{appveyor.yml,.travis.yml,circle.yml}",
+      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "dmg": {
+      "background": "build/appdmg.png",
+      "icon": "build/icon.icns",
+      "iconSize": 100,
+      "contents": [
+        {
+          "x": 380,
+          "y": 280,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 110,
+          "y": 280,
+          "type": "file"
+        }
+      ],
+      "window": {
+        "width": 500,
+        "height": 500
+      }
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "nsis": {
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "uninstallDisplayName": "卸载这个软件",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "createDesktopShortcut": true
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.ico"
+    }
+  },
+  "keywords": [
+    "文件上传助手"
+  ],
+  "author": "い 狂奔的蜗牛",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^16.0.6",
+    "electron-builder": "^22.9.1",
+    "electron-debug": "^1.5.0",
+    "electron-devtools-installer": "^2.2.4",
+    "eslint": "^7.13.0",
+    "eslint-config-google": "^0.14.0",
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "clipboard-copy": "^4.0.1",
+    "electron-store": "^8.0.1",
+    "parser-property": "^1.0.2",
+    "request": "^2.88.2",
+    "tinify": "^1.6.1"
+  }
+}
